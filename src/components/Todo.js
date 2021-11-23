@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import TodoForm from './TodoForm'
 import { BsTrash } from 'react-icons/bs'
 
-const Todo = ({todos, completeTodo}) => {
+const Todo = ({todos, completeTodo, removeTodo}) => {
 
-  const [edit, setEdit] = useState({
-    id: null,
-    value: ''
-  })
+//  const [edit, setEdit] = useState({
+//     id: null,
+//     value: ''
+//   }) 
 
   return todos.map((todo, index) => (
     <div className={todo.isComplete ? 'todo__row complete' : 'todo__row'} key={index}>
@@ -15,7 +15,9 @@ const Todo = ({todos, completeTodo}) => {
         {todo.text}
       </div>
       <div className="icons">
-        <BsTrash />
+        <BsTrash
+        onClick={() => removeTodo(todo.id)}
+        className="delete__icon" />
       </div>
     </div>
   ))

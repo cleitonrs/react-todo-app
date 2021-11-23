@@ -10,6 +10,7 @@ const TodoForm = (props) => {
   // Prevent refresh page on submit
   const handleSubmit = (event) => {
     event.preventDefault()
+    
 
     props.onSubmit({
       id: Math.floor(Math.random() * 10000), // Generate a randomic id number of 0 - 10000
