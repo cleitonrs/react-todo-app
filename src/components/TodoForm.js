@@ -25,12 +25,12 @@ const TodoForm = (props) => {
       <input
         className="todo__input"
         type="text"
-        placeholder="Add a todo"
+        placeholder="Adicionar tarefa"
         value={input}
         name="text"
         onChange={handleChange}
       />
-      <button className="todo__button">Add todo</button>
+      <button className="todo__button">Adicionar</button>
     </form>
   );
 };
