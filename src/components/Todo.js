@@ -1,13 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import TodoForm from './TodoForm'
 import { BsTrash } from 'react-icons/bs'
 
 const Todo = ({todos, completeTodo, removeTodo}) => {
-
-//  const [edit, setEdit] = useState({
-//     id: null,
-//     value: ''
-//   }) 
 
   return todos.map((todo, index) => (
     <div className={todo.isComplete ? 'todo__row complete' : 'todo__row'} key={index}>
