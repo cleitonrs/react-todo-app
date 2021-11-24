@@ -1,5 +1,4 @@
 import React from 'react'
-import TodoForm from './TodoForm'
 import { BsTrash } from 'react-icons/bs'
 
 const Todo = ({todos, completeTodo, removeTodo}) => {

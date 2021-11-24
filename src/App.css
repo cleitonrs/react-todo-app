@@ -55,6 +55,7 @@ body {
   margin: 128px auto;
   border-radius: 10px;
   padding-bottom: 32px;
+  box-shadow: 5px 10px 30px 1px;
 }
 
 h1 {
@@ -110,7 +111,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4px auto;
+  margin: 15px auto;
   color: var(--black-less);
   background: linear-gradient(
     90deg,
@@ -121,6 +122,7 @@ h1 {
   padding: 16px;
   border-radius: 5px;
   width: 90%;
+  box-shadow: 1px 1px 5px;
 }
 
 .todo__row:nth-child(4n + 1) {
