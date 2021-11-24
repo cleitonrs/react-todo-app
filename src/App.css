@@ -1,10 +1,7 @@
 :root {
   --background-primary: #abdcff;
   --background-secondary: #0396ff;
-  --background-primary-dark: #3010ff;
-  --background-secondary-dark: #6473ff;
   
-
   --white: #fff;
 
   --black: #000;
@@ -44,13 +41,14 @@ body {
     90deg,
     var(--background-primary),
     var(--background-secondary));
-}
+    background-attachment: fixed;
+  }
 
 .todo__app {
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  width: 520px;
+  justify-content: flex-start;
+  max-width: 520px;
   min-height: 600px;
   background-color: var(--white);
   text-align: center;
@@ -59,18 +57,10 @@ body {
   padding-bottom: 32px;
 }
 
-.todo__app.dark__mode {
-  background-color: var(--todo-app-dark);
-}
-
 h1 {
   margin: 32px 0;
   color: var(--black-less);
   font-size: 24px;
-}
-
-h1.dark__mode {
-  color: var(--white);
 }
 
 .complete {
@@ -79,7 +69,11 @@ h1.dark__mode {
 }
 
 .todo__form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 32px;
+  min-width: 320px;
 }
 
 .todo__input {
@@ -87,22 +81,13 @@ h1.dark__mode {
   border-radius: 4px 0 0 4px;
   border: 2px solid var(--todo-button-primary);
   outline: none;
-  width: 320px;
+  min-width: 230px;
   background: transparent;
   color: var(--black);
 }
 
-.todo__input.dark__mode {
-  border: 2px solid var(--todo-input-dark);
-  color: var(--white)
-}
-
 .todo__input::placeholder {
   color: var(--placeholder-light);
-}
-
-.todo__input.dar__mode::placeholder {
-  color: var(--placeholder-dark);
 }
 
 .todo__button {
@@ -120,12 +105,6 @@ h1.dark__mode {
   text-transform: capitalize;
   font-weight: 700;
 }
-
-/* .todo__container {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-} */
 
 .todo__row {
   display: flex;
@@ -180,6 +159,28 @@ h1.dark__mode {
   color: var(--black);
 }
 
-.delete__icon.dark__mode {
-  color: var(--white);
+@media only screen and (max-width: 320px) {
+  .todo__input {
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .todo__button {
+    border-radius: 4px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .todo__form {
+    min-width: 220px;
+  }
+
+  .todo__input {
+    min-width: 150px;
+  }
 }
