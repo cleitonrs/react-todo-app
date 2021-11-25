@@ -2,6 +2,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About Project
+
+This project was made with the purpose of practicing React JS.<br>
+This project is fully responsive.<br>
+Do you can click or touch(mobile) task name for change state to done.
+
+
+## Screenshot 
+
+![screen](https://user-images.githubusercontent.com/62728037/143327144-5e8122ce-0fce-4673-a6ea-6d4497f6c805.png)
+
+Site Live URL: https://react-todo21.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
