@@ -13,7 +13,7 @@ Do you can click or touch(mobile) task name for change state to done.
 
 ![screen](https://user-images.githubusercontent.com/62728037/143327144-5e8122ce-0fce-4673-a6ea-6d4497f6c805.png)
 
-Site Live URL: https://react-todo21.netlify.app/
+Live Site URL: https://react-todo21.netlify.app/
 
 ## Available Scripts
 
