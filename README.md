@@ -5,7 +5,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## About Project
 
 This project was made with the purpose of practicing React JS.<br>
-This project is fully responsive.<br>
 Do you can click or touch(mobile) task name for change state to done.
 
 
