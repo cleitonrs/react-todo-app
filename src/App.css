@@ -87,6 +87,19 @@ h1 {
   color: var(--white);
 }
 
+.todo__input.edit {
+  border: 2px solid var(--todo-row-1-primary);
+}
+
+.todo__button.edit {
+  background: linear-gradient(
+    90deg,
+    var(--todo-row-1-primary),
+    var(--todo-row-1-secondary)
+  );
+  padding: 16px 22px;
+}
+
 .todo__input::placeholder {
   color: var(--placeholder-dark);
 }
@@ -156,8 +169,12 @@ h1 {
   cursor: pointer;
 }
 
+.edit__icon {
+  margin: 0 10px;
+  color: var(--black)
+}
+
 .delete__icon {
-  margin-right: 5px;
   color: var(--black);
 }
 
