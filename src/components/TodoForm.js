@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 
 const TodoForm = (props) => {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
 
-  const inputRef = useRef(null);
+  // const inputRef = useRef(null);
 
-  useEffect(() => {
-    inputRef.current.focus();
-  });
+  // useEffect(() => {
+  //   inputRef.current.focus();
+  // });
 
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -36,7 +36,7 @@ const TodoForm = (props) => {
             value={input}
             name="text"
             onChange={handleChange}
-            ref={inputRef}
+            // ref={inputRef}
           />
           <button className="todo__button edit">Atualizar</button>
         </>
@@ -49,7 +49,7 @@ const TodoForm = (props) => {
             value={input}
             name="text"
             onChange={handleChange}
-            ref={inputRef}
+            // ref={inputRef}
           />
           <button className="todo__button">Adicionar</button>
         </>
