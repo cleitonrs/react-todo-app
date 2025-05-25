@@ -8,37 +8,54 @@ import {
   deleteDoc,
   doc,
   updateDoc,
+  query,
+  where,
+  serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../firebase";
-import { query, orderBy } from "firebase/firestore";
-import { serverTimestamp } from "firebase/firestore";
+import { useAuth } from "./login/AuthContext";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
+  const { currentUser } = useAuth();
 
   const todosCollection = collection(db, "todos");
 
   useEffect(() => {
-    const q = query(todosCollection, orderBy("createAt", "desc"));
+    if (!currentUser) return;
+    
+    const q = query(
+      todosCollection,
+      where("userId", "==", currentUser.uid),
+    );
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const tasks = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      setTodos(tasks);
+
+      const sortedTasks = tasks.sort((a, b) => {
+        if (!a.createAt) return -1
+        if (!b.createAt) return 1
+        return b.createAt.seconds - a.createAt.seconds
+      })
+
+      setTodos(sortedTasks);
     });
 
     return () => unsubscribe();
-  }, [todosCollection]);
+  }, [currentUser]);
 
   const addTask = async (text) => {
     const trimmed = text.trim();
-    if (!trimmed) return;
+    if (!currentUser || !trimmed) return
+    
     await addDoc(todosCollection, {
       text: trimmed,
       completed: false,
       createAt: serverTimestamp(),
+      userId: currentUser.uid,
     });
   };
 
@@ -63,12 +80,6 @@ const TodoList = () => {
     <>
       <h1>Quais são as tarefas de hoje?</h1>
       <TodoForm onSubmit={addTask} />
-      {/* <Todo
-          todos={todos}
-          completeTodo={toggleComplete}
-          removeTodo={deleteTask}
-          updateTodo={handleEditToggle}
-        /> */}
       <Todo
         todos={todos}
         toggleComplete={toggleComplete}
