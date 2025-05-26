@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Register = () => {
@@ -45,6 +45,9 @@ const Register = () => {
         />
 
         <button type="submit">Cadastrar</button>
+
+        <Link className="register-button" to={"/login"}>Voltar</Link>
+        
       </form>
     </div>
   );

@@ -45,6 +45,7 @@ const TodoList = () => {
     });
 
     return () => unsubscribe();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser]);
 
   const addTask = async (text) => {
