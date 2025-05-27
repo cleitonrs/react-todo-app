@@ -12,12 +12,17 @@ import {
   where,
   serverTimestamp,
 } from "firebase/firestore";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
 import { useAuth } from "./login/AuthContext";
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const { currentUser } = useAuth();
+
+  const navigate = useNavigate()
 
   const todosCollection = collection(db, "todos");
 
@@ -77,8 +82,18 @@ const TodoList = () => {
     });
   };
 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth)
+      navigate("/login")
+    } catch (error) {
+      console.error("Erro ao sair:", error)
+    }
+  }
+
   return (
     <>
+      <button className="exit-button" onClick={handleLogout}> <FiLogOut /> Sair</button>
       <h1>Quais são as tarefas de hoje?</h1>
       <TodoForm onSubmit={addTask} />
       <Todo

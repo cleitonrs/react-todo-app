@@ -25,6 +25,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleLogin}>
+        <h2>Lista de Tarefas</h2>
         <h2>Login</h2>
 
         {error && <p className="error">{error}</p>}

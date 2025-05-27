@@ -24,6 +24,7 @@ const Register = () => {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleRegister}>
+        <h2>Lista de Tarefas</h2>
         <h2>Cadastro</h2>
 
         {error && <p className="error">{error}</p>}

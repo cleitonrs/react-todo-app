@@ -178,6 +178,21 @@ h1 {
   color: var(--black);
 }
 
+.exit-button {
+  background-color: var(--todo-app-dark);
+  color: var(--todo-row-1-secondary);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
 @media only screen and (max-width: 320px) {
   .todo__input {
     border-radius: 4px;
