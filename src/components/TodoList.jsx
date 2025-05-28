@@ -41,9 +41,9 @@ const TodoList = () => {
       }));
 
       const sortedTasks = tasks.sort((a, b) => {
-        if (!a.createAt) return -1
-        if (!b.createAt) return 1
-        return b.createAt.seconds - a.createAt.seconds
+        if (!a.createAt) return 1
+        if (!b.createAt) return -1
+        return a.createAt.seconds - b.createAt.seconds
       })
 
       setTodos(sortedTasks);
