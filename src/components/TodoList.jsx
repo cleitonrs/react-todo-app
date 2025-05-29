@@ -22,17 +22,14 @@ const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const { currentUser } = useAuth();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const todosCollection = collection(db, "todos");
 
   useEffect(() => {
     if (!currentUser) return;
-    
-    const q = query(
-      todosCollection,
-      where("userId", "==", currentUser.uid),
-    );
+
+    const q = query(todosCollection, where("userId", "==", currentUser.uid));
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const tasks = snapshot.docs.map((doc) => ({
@@ -40,23 +37,32 @@ const TodoList = () => {
         ...doc.data(),
       }));
 
+      // const sortedTasks = tasks.sort((a, b) => {
+      //   if (!a.createAt) return 1
+      //   if (!b.createAt) return -1
+      //   return a.createAt.seconds - b.createAt.seconds
+      // })
+
       const sortedTasks = tasks.sort((a, b) => {
-        if (!a.createAt) return 1
-        if (!b.createAt) return -1
-        return a.createAt.seconds - b.createAt.seconds
-      })
+        if (a.completed === b.completed) {
+          if (!a.createAt) return 1;
+          if (!b.createAt) return -1;
+          return a.createAt.seconds - b.createAt.seconds;
+        }
+        return a.completed ? 1 : -1;
+      });
 
       setTodos(sortedTasks);
     });
 
     return () => unsubscribe();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser]);
 
   const addTask = async (text) => {
     const trimmed = text.trim();
-    if (!currentUser || !trimmed) return
-    
+    if (!currentUser || !trimmed) return;
+
     await addDoc(todosCollection, {
       text: trimmed,
       completed: false,
@@ -84,16 +90,19 @@ const TodoList = () => {
 
   const handleLogout = async () => {
     try {
-      await signOut(auth)
-      navigate("/login")
+      await signOut(auth);
+      navigate("/login");
     } catch (error) {
-      console.error("Erro ao sair:", error)
+      console.error("Erro ao sair:", error);
     }
-  }
+  };
 
   return (
     <>
-      <button className="exit-button" onClick={handleLogout}> <FiLogOut /> Sair</button>
+      <button className="exit-button" onClick={handleLogout}>
+        {" "}
+        <FiLogOut /> Sair
+      </button>
       <h1>Quais são as tarefas de hoje?</h1>
       <TodoForm onSubmit={addTask} />
       <Todo
