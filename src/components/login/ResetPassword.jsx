@@ -2,6 +2,7 @@ import { useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebase";
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 const ResetPassword = () => {
   const [email, setEmail] = useState("");
@@ -37,6 +38,8 @@ const ResetPassword = () => {
         />
 
         <button type="submit">Enviar</button>
+
+        <Link className="register-button" to={"/login"}>Voltar</Link>
       </form>
     </div>
   );

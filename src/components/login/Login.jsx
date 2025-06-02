@@ -48,6 +48,8 @@ const Login = () => {
         <button type="submit">Entrar</button>
 
         <Link className="register-button" to={"/register"}>Cadastre-se</Link>
+
+        <Link className="forgot-password" to="/reset-password">Esqueci minha senha</Link>
       </form>
     </div>
   );

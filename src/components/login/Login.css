@@ -78,3 +78,8 @@
   margin-bottom: 10px;
   text-align: center;
 }
+
+.forgot-password {
+  color: gray;
+  margin-top: 15px;
+}
