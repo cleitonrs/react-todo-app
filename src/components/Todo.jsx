@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TodoForm from "./TodoForm";
 import { BsTrash } from "react-icons/bs";
 import { TiEdit } from "react-icons/ti";

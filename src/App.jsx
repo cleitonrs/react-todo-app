@@ -5,7 +5,7 @@ import Login from "./components/login/Login";
 import Register from "./components/login/Register";
 import ResetPassword from "./components/login/ResetPassword";
 import PrivateRoute from "./components/login/PrivateRoute";
-import { AuthProvider } from "./components/login/AuthContext";
+import { AuthProvider } from "./contexts/AuthContext";
 
 function App() {
   return (

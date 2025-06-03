@@ -13,7 +13,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db, auth } from "../firebase";
-import { useAuth } from "./login/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
