@@ -37,20 +37,20 @@ const TodoList = () => {
         ...doc.data(),
       }));
 
-      // const sortedTasks = tasks.sort((a, b) => {
-      //   if (!a.createAt) return 1
-      //   if (!b.createAt) return -1
-      //   return a.createAt.seconds - b.createAt.seconds
-      // })
-
       const sortedTasks = tasks.sort((a, b) => {
-        if (a.completed === b.completed) {
-          if (!a.createAt) return 1;
-          if (!b.createAt) return -1;
-          return a.createAt.seconds - b.createAt.seconds;
-        }
-        return a.completed ? 1 : -1;
-      });
+        if (!a.createAt) return 1
+        if (!b.createAt) return -1
+        return a.createAt.seconds - b.createAt.seconds
+      })
+
+      // const sortedTasks = tasks.sort((a, b) => {
+      //   if (a.completed === b.completed) {
+      //     if (!a.createAt) return 1;
+      //     if (!b.createAt) return -1;
+      //     return a.createAt.seconds - b.createAt.seconds;
+      //   }
+      //   return a.completed ? 1 : -1;
+      // });
 
       setTodos(sortedTasks);
     });
